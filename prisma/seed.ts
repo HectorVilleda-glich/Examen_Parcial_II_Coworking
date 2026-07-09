@@ -1,12 +1,11 @@
 import { PrismaClient } from '../generated/prisma/client';
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient({ datasourceUrl: process.env.DATABASE_URL });
 
 const spaces = [
-  // SALAS
   {
     name: 'Sala Ejecutiva Premium',
-    description: 'Sala de reuniones ejecutiva con equipamiento de primera. Ideal para juntas de directorio y negociaciones importantes.',
+    description: 'Sala de reuniones ejecutiva con equipamiento de primera.',
     location: 'Piso 3, Zona Norte',
     capacity: 12,
     type: 'SALA',
@@ -15,7 +14,7 @@ const spaces = [
   },
   {
     name: 'Sala de Conferencias',
-    description: 'Amplia sala con proyector de alta definicion y sistema de sonido. Perfecta para presentaciones y capacitaciones.',
+    description: 'Amplia sala con proyector de alta definicion y sistema de sonido.',
     location: 'Piso 2, Zona Centro',
     capacity: 30,
     type: 'SALA',
@@ -24,7 +23,7 @@ const spaces = [
   },
   {
     name: 'Sala Creativa',
-    description: 'Espacio inspirador con pizarron blanco y area de brainstorming. Ideal para equipos de diseno y marketing.',
+    description: 'Espacio inspirador con pizarron blanco y area de brainstorming.',
     location: 'Piso 1, Zona Sur',
     capacity: 8,
     type: 'SALA',
@@ -33,17 +32,16 @@ const spaces = [
   },
   {
     name: 'Sala VIP Todo Incluido',
-    description: 'Nuestra sala premium con WiFi de alta velocidad, proyector 4K, cafetera profesional y servicio de catering incluido.',
+    description: 'Sala premium con WiFi, proyector 4K, cafetera y catering.',
     location: 'Piso 4, Zona Norte',
     capacity: 15,
     type: 'SALA',
     price: 500,
     imageUrl: 'https://images.unsplash.com/photo-1517502884422-41eaead166d4?w=800',
   },
-  // ESCRITORIOS
   {
     name: 'Escritorio Individual',
-    description: 'Escritorio privado en area tranquila. Incluye silla ergonomica y enchufes personales.',
+    description: 'Escritorio privado en area tranquila con silla ergonomica.',
     location: 'Piso 1, Zona Este',
     capacity: 1,
     type: 'ESCRITORIO',
@@ -52,7 +50,7 @@ const spaces = [
   },
   {
     name: 'Escritorio con WiFi Premium',
-    description: 'Escritorio en area de coworking con acceso a internet de alta velocidad y monitor externo.',
+    description: 'Escritorio con internet de alta velocidad y monitor externo.',
     location: 'Piso 2, Zona Este',
     capacity: 1,
     type: 'ESCRITORIO',
@@ -61,7 +59,7 @@ const spaces = [
   },
   {
     name: 'Estacion de Trabajo Completa',
-    description: 'Escritorio con monitor dual, keyboard mecanico, WiFi dedicado y acceso a cafeteria ilimitada.',
+    description: 'Monitor dual, keyboard mecanico, WiFi y cafeteria.',
     location: 'Piso 2, Zona Centro',
     capacity: 1,
     type: 'ESCRITORIO',
@@ -70,17 +68,16 @@ const spaces = [
   },
   {
     name: 'Escritorio Economica',
-    description: 'Escritorio compartido en area abierta. Conexion WiFi incluida. Ideal para freelancers.',
+    description: 'Escritorio compartido con WiFi para freelancers.',
     location: 'Piso 1, Zona Oeste',
     capacity: 1,
     type: 'ESCRITORIO',
     price: 60,
     imageUrl: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=800',
   },
-  // AUDITORIOS
   {
     name: 'Auditorio Principal',
-    description: 'Auditorio con capacidad para eventos masivos. Proyector laser, sistema de sonido envolvente y escenario.',
+    description: 'Capacidad para eventos masivos con proyector laser.',
     location: 'Planta Baja, Zona Central',
     capacity: 100,
     type: 'AUDITORIO',
@@ -89,7 +86,7 @@ const spaces = [
   },
   {
     name: 'Auditorio Mediano',
-    description: 'Espacio para presentaciones y conferencias con proyector HD y areas de coffee break.',
+    description: 'Presentaciones y conferencias con proyector HD.',
     location: 'Piso 3, Zona Sur',
     capacity: 50,
     type: 'AUDITORIO',
@@ -98,7 +95,7 @@ const spaces = [
   },
   {
     name: 'Sala de Eventos Premium',
-    description: 'Auditorio de lujo con WiFi de alta velocidad, proyector 4K, cafetera profesional y cabina de traduccion.',
+    description: 'Auditorio de lujo con WiFi, proyector 4K y cafetera.',
     location: 'Piso 4, Zona Central',
     capacity: 75,
     type: 'AUDITORIO',
